@@ -36,10 +36,6 @@ function loadThumbnailWrapper(docViewer, document, pageIndex) {
 
 export const PdftronThumbs = () => {
   const viewer = useRef(null)
-  const [instance, setInstance] = useState(undefined)
-  const [isLoading, setIsLoading] = useState(false)
-  const [xfdf, setXfdf] = useState('no xfdf yet')
-  const [xfdfCommand, setXfdfCommand] = useState('no xfdf yet')
 
   const [thumbs, setThumbs] = useState()
 
@@ -56,8 +52,6 @@ export const PdftronThumbs = () => {
       },
       viewer.current
     ).then((instance) => {
-      setInstance(instance)
-
       instance.docViewer.one('documentLoaded', () => {
         console.log(
           'document is LOADED, elapsed ' +
@@ -96,7 +90,6 @@ export const PdftronThumbs = () => {
 
   return (
     <div className='MyComponent'>
-      <div className='header'>{isLoading && <progress />}</div>
       <div>
         {thumbs &&
           thumbs.map((thumb) => {
