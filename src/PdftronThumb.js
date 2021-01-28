@@ -45,7 +45,7 @@ export const PdftronThumbs = () => {
     WebViewer(
       {
         path: '/wv',
-        initialDoc: '/files/big.pdf',
+        initialDoc: '/files/fullscreen.pdf',
         licenseKey,
         fullAPI: true,
         preloadWorker: 'all',
