@@ -5,18 +5,18 @@
   "main": "index.html",
   "dependencies": {
     "@pdftron/webviewer": "^7.3.0",
-    "copyfiles": "^2.4.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
-    "parcel": "^2.0.0-beta.1",
-    "parcel-reporter-static-files-copy": "^1.2.1"
+    "parcel": "^2.0.0-beta.1"
   },
   "scripts": {
-    "start": "parcel serve ./src/index.html --dist-dir www/",
-    "build": "copyWv && parcel build ./src/index.html --dist-dir www/",
-    "copyWv": "xcopy \"./node_modules/@pdftron/webviewer/public\" \"./www/wv\" /i /e /y || cp -R \"./node_modules/@pdftron/webviewer/public\" \"./www/wv\""
+    "start": "npm run copyWv && parcel serve ./src/index.html --dist-dir www/",
+    "build": "npm run copyWv && parcel build ./src/index.html --dist-dir www/",
+    "copyWv": "xcopy \"./node_modules/@pdftron/webviewer/public\" \"./www/wv\" /i /e /y || cp -R \"./node_modules/@pdftron/webviewer/public\" \"./www/wv\"",
+    "clean": "rimraf -rf www && rimraf -rf .parcel-cache && rimraf -rf node_modules && rimraf -rf package-lock.json"
   },
   "author": "",
   "license": "ISC"

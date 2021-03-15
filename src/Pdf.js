@@ -16,7 +16,7 @@ const smallPdf =
 const bigPdf =
   "https://bo.touch-sell.net/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNDdvTUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--92b62f2c28069334bdc6ab1aedb439812b94a635/Pathfinder.optimized.pdf";
 
-const mediumPdf = "/files/100page.pdf";
+const mediumPdf = "../static/files/100page.pdf";
 
 export const Pdf = () => {
   const viewer = useRef(null);
