@@ -16,14 +16,15 @@ const smallPdf =
 const bigPdf =
   'https://bo.touch-sell.net/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNDdvTUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--92b62f2c28069334bdc6ab1aedb439812b94a635/Pathfinder.optimized.pdf'
 
-const mediumPdf = '../../files/long2.pdf'
+const mediumPdf: string = '../../files/long2.pdf'
 
 export const Pdf = () => {
-  const viewer = useRef()
+  const viewer = useRef<any>()
 
   const [instance, setInstance] = useState<WebViewerInstance | undefined>()
 
   useEffect(() => {
+    if (!viewer.current) return
     WebViewer(PDFTRON_WEBVIEWER_OPTIONS, viewer.current).then((instance) => {
       setInstance(instance)
       console.info('instance ready')
@@ -35,7 +36,10 @@ export const Pdf = () => {
       <select
         onChange={(event) => {
           event.persist()
-          if (!instance) console.error('instance not ready')
+          if (!instance) {
+            console.error('instance not ready')
+            return
+          }
           instance.closeDocument().then(() => {
             instance.loadDocument(event.target.value)
             instance.setLayoutMode(instance.LayoutMode.Single)

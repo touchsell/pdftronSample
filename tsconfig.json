@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "lib": ["dom", "webworker", "esnext"],
+    "jsx": "preserve",
+    "paths": {
+      // Workaround for https://github.com/emotion-js/emotion/issues/1203
+      "@original-emotion/styled": ["./node_modules/@emotion/styled"],
+      "@emotion/styled": ["./src/theme/styled.ts"]
+    }
+  },
+  "include": ["src"]
+}
