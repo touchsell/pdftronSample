@@ -1,4 +1,4 @@
-import WebViewer from '@pdftron/webviewer'
+import WebViewer, { WebViewerInstance } from '@pdftron/webviewer'
 import React, { useEffect, useRef, useState } from 'react'
 
 const PDFTRON_WEBVIEWER_OPTIONS = {
@@ -21,7 +21,7 @@ const mediumPdf = '../../files/long2.pdf'
 export const Pdf = () => {
   const viewer = useRef()
 
-  const [instance, setInstance] = useState()
+  const [instance, setInstance] = useState<WebViewerInstance | undefined>()
 
   useEffect(() => {
     WebViewer(PDFTRON_WEBVIEWER_OPTIONS, viewer.current).then((instance) => {
