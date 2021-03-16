@@ -2,21 +2,22 @@
   "name": "parcel-2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.html",
   "dependencies": {
-    "@pdftron/webviewer": "^7.3.0",
-    "copyfiles": "^2.4.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "@pdftron/webviewer": "7.2.0",
+    "copyfiles": "2.4.1",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "parcel": "2.0.0-beta.1"
   },
   "devDependencies": {
-    "parcel": "^2.0.0-beta.1",
-    "parcel-reporter-static-files-copy": "^1.2.1"
+    "@parcel/babel-plugin-transform-runtime": "2.0.0-beta.1",
+    "parcel-reporter-static-files-copy": "1.2.1"
   },
   "scripts": {
-    "start": "parcel serve ./src/index.html --dist-dir www/",
-    "build": "copyWv && parcel build ./src/index.html --dist-dir www/",
-    "copyWv": "xcopy \"./node_modules/@pdftron/webviewer/public\" \"./www/wv\" /i /e /y || cp -R \"./node_modules/@pdftron/webviewer/public\" \"./www/wv\""
+    "start": "parcel serve src/index.html",
+    "build": "parcel build src/index.html --dist-dir dist/",
+    "clean": "rm -rf ./dist",
+    "allClean": "rm -rf ./dist && rm -rf ./node_modules && ./package-lock.json"
   },
   "author": "",
   "license": "ISC"

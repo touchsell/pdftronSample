@@ -19,25 +19,30 @@ const bigPdf =
 const mediumPdf = '../../files/long2.pdf'
 
 export const Pdf = () => {
-  const viewer = useRef(null)
+  const viewer = useRef()
 
   const [instance, setInstance] = useState()
 
   useEffect(() => {
     WebViewer(PDFTRON_WEBVIEWER_OPTIONS, viewer.current).then((instance) => {
       setInstance(instance)
+      console.info('instance ready')
     })
   }, [])
 
   return (
-    <>
+    <div>
       <select
         onChange={(event) => {
-          instance.loadDocument(event.target.value)
-          instance.setLayoutMode(instance.LayoutMode.Single)
-          instance.setSwipeOrientation('horizontal')
-          instance.docViewer.setMargin(0)
-          instance.docViewer.setEnableAutomaticLinking(false)
+          event.persist()
+          if (!instance) console.error('instance not ready')
+          instance.closeDocument().then(() => {
+            instance.loadDocument(event.target.value)
+            instance.setLayoutMode(instance.LayoutMode.Single)
+            instance.setSwipeOrientation('horizontal')
+            instance.docViewer.setMargin(0)
+            instance.docViewer.setEnableAutomaticLinking(false)
+          })
         }}
       >
         <option value={smallPdf}>Small pdf</option>
@@ -45,10 +50,10 @@ export const Pdf = () => {
         <option value={bigPdf}>Big pdf</option>
       </select>
       <div
-        style={{ width: '100vw', height: '100vh' }}
+        style={{ width: '100vw', height: '95vh' }}
         data-cy='pdfViewer'
         ref={viewer}
-      ></div>
-    </>
+      />
+    </div>
   )
 }
