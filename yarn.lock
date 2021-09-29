@@ -1411,6 +1411,11 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@pdftron/webviewer@^7.3.3":
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/@pdftron/webviewer/-/webviewer-7.3.3.tgz#e5ada58c4c4a4101a095507673ba2278042942ef"
+  integrity sha512-cTJf9pXlN9tilliO8NgKw6vn1PPXSHKLOrUS7j4f+0sz2BJDVwO2rlI4BJBQ5BT2qIru1dg2GxYUyeXOqNyi9Q==
+
 "@pmmmwh/react-refresh-webpack-plugin@0.4.2":
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.4.2.tgz#1f9741e0bde9790a0e13272082ed7272a083620d"
@@ -4889,6 +4894,11 @@ file-loader@6.1.1:
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
+
+file-saver@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-2.0.5.tgz#d61cfe2ce059f414d899e9dd6d4107ee25670c38"
+  integrity sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==
 
 file-uri-to-path@1.0.0:
   version "1.0.0"

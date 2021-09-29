@@ -1,13 +1,14 @@
-import './App.css'
-import { PdftronThumbs } from './PdftronThumb'
+import "./App.css";
+import { PdftronExport } from "./PdftronExport";
 
 function App() {
   return (
-    <div className='App'>
-      <PdftronThumbs />
+    <div className="App">
+      <PdftronExport />
+      {/* <PdftronThumbs /> */}
       {/* <PdftronXfdf /> */}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
